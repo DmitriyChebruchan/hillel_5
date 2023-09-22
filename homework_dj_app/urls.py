@@ -1,5 +1,5 @@
 """
-URL configuration for projectname project.
+URL configuration for homework_dj_app project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from student_manager.views import index_page, generate_student, generate_students
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path("", index_page),
+    path("generate-student/", generate_student),
+    path("generate-students/", generate_students)
 ]
