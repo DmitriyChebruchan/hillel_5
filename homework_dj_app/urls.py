@@ -22,5 +22,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", index_page),
     path("generate-student/", generate_student),
-    path("generate-students/", generate_students)
+    path("generate-students/", generate_students),
 ]

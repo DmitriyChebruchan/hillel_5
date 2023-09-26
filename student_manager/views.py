@@ -9,7 +9,6 @@ def index_page(request):
 
 
 def generate_student(request):
-    
     fake = Faker()
     new_student = Student(name=fake.name(), address=fake.address())
     new_student.save()
@@ -21,7 +20,7 @@ def generate_students(request):
     try:
         count = int(request.GET.get("count"))
         if 0 <= count <= 100:
-            i=0
+            i = 0
             while i < count:
                 fake = Faker()
                 new_student = Student(name=fake.name(), address=fake.address())
@@ -29,6 +28,8 @@ def generate_students(request):
                 i += 1
             return HttpResponse("success")
         else:
-            return HttpResponse("error: Quantity of students is out of range: <br>0 - 100")
+            return HttpResponse(
+                "error: Quantity of students is out of range: <br>0 - 100"
+            )
     except ValueError:
         return HttpResponse("error: Quantity of students to be countable")
