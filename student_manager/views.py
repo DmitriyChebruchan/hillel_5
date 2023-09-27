@@ -17,6 +17,10 @@ def generate_student(request):
 
 
 def generate_students(request):
+    count = request.GET.get("count")
+
+    if count is None:
+        return HttpResponse("count argument is missing.")
     try:
         count = int(request.GET.get("count"))
         if 0 <= count <= 100:
